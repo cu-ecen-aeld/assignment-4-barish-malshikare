@@ -22,7 +22,8 @@ jobs:
           - name: Run full test
             env:
               GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no"
-              GIT_SSH_COMMAND1: "export FORCE_UNSAFE_CONFIGURE=1"
+                - name: FORCE_UNSAFE_CONFIGURE
+                  value: "1"
             run: ./full-test.sh
           - name: Cleanup
             if: always()
